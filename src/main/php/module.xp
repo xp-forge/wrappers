@@ -1,0 +1,39 @@
+<?php namespace lang\types;
+
+module xp-forge/wrappers {
+  static $replace= [
+    'lang\\types\\Double' => 'lang.types.Double'
+  ];
+
+  /**
+   * Initialize module. Declares the `StrImpl` trait which uses the mbstring library
+   * if available, iconv otherwise; and the `Int64Impl` trait which uses native 64
+   * bit support if available, or the bcmath library otherwise.
+   *
+   * @return void
+   */
+  public function initialize() {
+    if (extension_loaded('mbstring')) {
+      mb_internal_encoding(\xp::ENCODING);
+      class_alias('lang\\types\\impl\\Mbstring', 'lang\\types\\StrImpl');
+    } else {
+      @iconv_set_encoding('internal_encoding', \xp::ENCODING);
+      class_alias('lang\\types\\impl\Iconv', 'lang\\types\\StrImpl');
+    }
+
+    if (PHP_INT_MAX === 2147483647) {
+      class_alias('lang\\types\\impl\\Bcmath', 'lang\\types\\Int64Impl');
+    } else {
+      class_alias('lang\\types\\impl\\Native64', 'lang\\types\\Int64Impl');
+    }
+
+    $loader= function($class) {
+      if (isset(self::$replace[$class])) {
+        $this->classLoader->loadClass0(self::$replace[$class]);
+        return true;
+      }
+      return false;
+    };
+    spl_autoload_register($loader, true, true);
+  }
+}
