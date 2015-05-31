@@ -1,6 +1,6 @@
 <?php namespace lang\types;
 
-abstract class Num extends \lang\Object {
+abstract class Num implements \lang\Value {
   protected $wrapped;
 
   /** @return int */
@@ -10,13 +10,13 @@ abstract class Num extends \lang\Object {
   public function doubleVal() { return (double)$this->wrapped; }
 
   /**
-   * Returns whether a given object is equal to this object
+   * Compare the given value to this object
    *
    * @param   var $cmp
-   * @return  bool
+   * @return  int
    */
-  public function equals($cmp) {
-    return $cmp instanceof self && $cmp->wrapped === $this->wrapped;
+  public function compareTo($cmp) {
+    return $cmp instanceof self ? (int)($this->wrapped - $cmp->wrapped) : -1;
   }
 
   /**
@@ -34,7 +34,7 @@ abstract class Num extends \lang\Object {
    * @return  string
    */
   public function toString() {
-    return $this->getClassName().'('.$this->wrapped.')';
+    return nameof($this).'('.$this->wrapped.')';
   }
 
   /** @return string */ 

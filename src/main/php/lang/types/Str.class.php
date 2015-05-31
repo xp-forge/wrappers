@@ -1,6 +1,6 @@
 <?php namespace lang\types;
 
-final class Str extends \lang\Object {
+final class Str implements \lang\Value {
   private $buffer;
   public static $EMPTY;
 
@@ -63,13 +63,13 @@ final class Str extends \lang\Object {
   }
 
   /**
-   * Returns whether a given object is equal to this object
+   * Compare the given value to this object
    *
    * @param   var $cmp
-   * @return  bool
+   * @return  int
    */
-  public function equals($cmp) {
-    return $cmp instanceof self && $cmp->buffer === $this->buffer;
+  public function compareTo($cmp) {
+    return $cmp instanceof self ? strcmp($cmp->buffer, $this->buffer) : -1;
   }
 
   /**
@@ -87,7 +87,7 @@ final class Str extends \lang\Object {
    * @return  string
    */
   public function toString() {
-    return $this->getClassName().'("'.$this->buffer.'")';
+    return nameof($this).'("'.$this->buffer.'")';
   }
 
   /**
