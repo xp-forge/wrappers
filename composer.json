@@ -6,7 +6,7 @@
   "description" : "Wrapper types",
   "keywords": ["module", "xp"],
   "require" : {
-    "xp-framework/core": "^6.3",
+    "xp-framework/core": "dev-master",
     "php" : ">=5.4.0"
   },
   "autoload" : {
