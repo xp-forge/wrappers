@@ -16,7 +16,6 @@ trait Native64 {
     if ($initial < -9223372036854775808 || $initial > 9223372036854775807) {
       throw new IllegalArgumentException('Out of range for an int64: '.$initial);
     }
-    parent::__construct((int)$initial);
+     $this->wrapped= (int)$initial;
   }
-
 }

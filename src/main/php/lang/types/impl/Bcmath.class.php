@@ -19,6 +19,6 @@ trait Bcmath {
     if (-1 === bccomp($initial, '-9223372036854775808') || 1 === bccomp($initial, '9223372036854775807')) {
       throw new IllegalArgumentException('Out of range for an int64: '.$initial);
     }
-    parent::__construct(bcadd($initial, 0));
+    $this->wrapped= bcadd($initial, 0);
   }
 }

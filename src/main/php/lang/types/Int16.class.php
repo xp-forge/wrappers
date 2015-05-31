@@ -13,6 +13,6 @@ final class Int16 extends Num {
     if ($initial < -32768 || $initial > 32767) {
       throw new IllegalArgumentException('Out of range for an int16: '.$initial);
     }
-    parent::__construct((int)$initial);
+     $this->wrapped= (int)$initial;
   }
 }

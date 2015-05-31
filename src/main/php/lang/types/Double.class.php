@@ -8,7 +8,7 @@ final class Double extends Num {
    * @param  string|double|int $initial
    */
   public function __construct($initial) {
-    parent::__construct((double)$initial);
+     $this->wrapped= (double)$initial;
   }
 
   /**

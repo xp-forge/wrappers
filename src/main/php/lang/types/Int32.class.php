@@ -13,6 +13,6 @@ final class Int32 extends Num {
     if ($initial < -2147483648 || $initial > 2147483647) {
       throw new IllegalArgumentException('Out of range for an int32: '.$initial);
     }
-    parent::__construct((int)$initial);
+     $this->wrapped= (int)$initial;
   }
 }

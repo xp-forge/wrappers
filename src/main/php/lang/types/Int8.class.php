@@ -13,6 +13,6 @@ final class Int8 extends Num {
     if ($initial < -128 || $initial > 127) {
       throw new IllegalArgumentException('Out of range for an int8: '.$initial);
     }
-    parent::__construct((int)$initial);
+     $this->wrapped= (int)$initial;
   }
 }

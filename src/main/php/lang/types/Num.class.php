@@ -3,15 +3,6 @@
 abstract class Num extends \lang\Object {
   protected $wrapped;
 
-  /**
-   * Creates a new number
-   *
-   * @param  string|double|int $initial
-   */
-  public function __construct($initial) {
-    $this->wrapped= $initial;
-  }
-
   /** @return int */
   public function intVal() { return (int)$this->wrapped; }
 
