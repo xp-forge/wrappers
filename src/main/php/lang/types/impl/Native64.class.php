@@ -13,7 +13,7 @@ trait Native64 {
    * @param  string|double|int $initial
    */
   public function __construct($initial) {
-    if ($initial < -9223372036854775808 || $initial > 9223372036854775807) {
+    if ($initial < '-9223372036854775808' || $initial > '9223372036854775807') {
       throw new IllegalArgumentException('Out of range for an int64: '.$initial);
     }
      $this->wrapped= (int)$initial;
