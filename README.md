@@ -14,7 +14,7 @@ This API defines object-oriented API to base types.
 API
 ---
 
-```sh
+```groovy
 package lang.types {
   public abstract class lang.types.Num
   public final class lang.types.Int8       // "Byte", -128 to 127
