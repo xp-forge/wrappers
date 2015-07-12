@@ -17,10 +17,10 @@ API
 ```sh
 package lang.types {
   public abstract class lang.types.Num
+  public final class lang.types.Int8
   public final class lang.types.Int16
   public final class lang.types.Int32
   public final class lang.types.Int64
-  public final class lang.types.Int8
   public final class lang.types.Single
   public final class lang.types.Str
 }
