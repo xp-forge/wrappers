@@ -17,12 +17,12 @@ API
 ```sh
 package lang.types {
   public abstract class lang.types.Num
-  public final class lang.types.Int8       // "Byte"
-  public final class lang.types.Int16      // "Short"
-  public final class lang.types.Int32      // "Int"
-  public final class lang.types.Int64      // "Long"
-  public final class lang.types.Single     // "Float"
-  public final class lang.types.Double     // "Double"
+  public final class lang.types.Int8       // "Byte", -128 to 127
+  public final class lang.types.Int16      // "Short", -32768 to 32767
+  public final class lang.types.Int32      // "Int", -2^31 to (2^31)- 1
+  public final class lang.types.Int64      // "Long", -2^63 to (2^63)- 1
+  public final class lang.types.Single     // "Float", -3.4 x 10^38 to +3.4 x 10^38
+  public final class lang.types.Double     // "Double", ±5.0 x 10^324 to ±1.7 x 10^308
   public final class lang.types.Str        // "String"
 }
 ```
